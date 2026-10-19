@@ -1,0 +1,36 @@
+{
+  "id": "./",
+  "name": "Lumen · Gastos",
+  "short_name": "Lumen",
+  "description": "Registro rápido de gastos con resumen de cada mes. Los datos viven solo en tu teléfono.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#120904",
+  "theme_color": "#120904",
+  "categories": ["finance", "productivity"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Nuevo gasto",
+      "short_name": "Nuevo gasto",
+      "description": "Abre directamente el teclado para apuntar un gasto",
+      "url": "./?nuevo",
+      "icons": [{ "src": "icons/shortcut-add.png", "sizes": "96x96", "type": "image/png" }]
+    },
+    {
+      "name": "Análisis del mes",
+      "short_name": "Análisis",
+      "url": "./?vista=analisis",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ],
+  "launch_handler": { "client_mode": "navigate-existing" }
+}

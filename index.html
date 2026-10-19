@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es" data-theme="ambar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#120904">
+  <meta name="color-scheme" content="dark">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Lumen">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Registro rápido de gastos con resumen de cada mes.">
+  <title>Lumen · Gastos</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preload" href="fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/app.css">
+  <script>
+    // Aplica el tema antes de pintar para que no haya parpadeo de color.
+    try { var s = JSON.parse(localStorage.getItem('lumen.v1') || '{}'); if (s.tema) document.documentElement.dataset.theme = s.tema; if (s.discreto) document.documentElement.classList.add('discreto'); } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <div class="glow"></div>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grain"></div>
+  </div>
+
+  <main id="app" tabindex="-1"></main>
+
+  <nav class="dock" aria-label="Navegación">
+    <button class="dock-btn" data-go="inicio" aria-label="Inicio">
+      <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg>
+    </button>
+    <button class="fab" data-act="nuevo" aria-label="Nuevo gasto">
+      <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+    <button class="dock-btn" data-go="analisis" aria-label="Análisis">
+      <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+    </button>
+  </nav>
+
+  <div id="sheet-root"></div>
+  <div id="toast-root" role="status" aria-live="polite"></div>
+  <label id="haptic" class="haptic" aria-hidden="true"><input type="checkbox" switch tabindex="-1"></label>
+  <input id="file-restore" type="file" accept="application/json,.json" hidden>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
